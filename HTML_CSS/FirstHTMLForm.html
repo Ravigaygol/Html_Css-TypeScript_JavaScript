@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign-Up Form</title>
+    <script type="text/javascript">
+function validation() {
+    var f = document.getElementById('first').value;
+    var l = document.getElementById('last').value;
+    var m = document.getElementById('no').value;
+    var ml = document.getElementById('mail').value;
+    var ps = document.getElementById('pass').value;
+    var cps = document.getElementById('cnp').value;
+    if(f == "")
+    {
+        document.getElementById('firstt').innerHTML="Please enter first name";
+      return false;
+    }
+        if(f.length<2)
+        {
+            document.getElementById('firstt').innerHTML="Please enter more than one character";
+            return false;
+        } 
+        if(!isNaN(f))
+        {
+            document.getElementById('firstt').innerHTML="Please enter character only";
+            return false;
+        } 
+        else
+        {
+            document.getElementById('firstt').innerHTML="";
+            return false;
+        }
+    if(l == "")
+    {
+        document.getElementById('lastt').innerHTML="Please enter last name";
+        return false;
+    }
+    if(m == "")
+    {
+        document.getElementById('noo').innerHTML="Please enter  mobile number";
+        return false;
+    } 
+    if(ml == "")
+    {
+        document.getElementById('maill').innerHTML="Please enter mail address";
+        return false; 
+    } 
+    if(ml.indexOf('@') <=0)
+    {
+        document.getElementById('maill').innerHTML="Please enter correct position of @";
+        return false; 
+    } 
+    if(ml.charAt(ml.length-4)!='.' && ml.charAt(ml.length-3)!='.')
+    {
+        document.getElementById('maill').innerHTML="Please enter correct position of .";
+        return false; 
+    } 
+    else
+        {
+            document.getElementById('maill').innerHTML="";
+            return false;
+        }
+    if(ps == "")
+    {
+        document.getElementById('passs').innerHTML="Please enter password";
+        return false;
+    }
+    if(ps.length<8)
+    {
+        document.getElementById('passs').innerHTML="Please enter password at least 8 characters";
+        return false;
+    }
+    if(ps.search(/[0-9]/)==-1)
+    {
+        document.getElementById('passs').innerHTML="Please enter password at least 1 numeric character";
+        return false;
+    }
+    if(ps.search(/[a-z]/)==-1)
+    {
+        document.getElementById('passs').innerHTML="Please enter password at least 1 Lower Case character";
+        return false;
+    }
+    if(ps.search(/[A-Z]/)==-1)
+    {
+        document.getElementById('passs').innerHTML="Please enter password at least 1 Upper Case character";
+        return false;
+    }if(ps.search(/[!\@\#\$\%\^\&\*(\)\_\+\>\,\?]/)==-1)
+    {
+        document.getElementById('passs').innerHTML="Please enter password at least 1 Special Symbol";
+        return false;
+    }
+    else
+    {
+        document.getElementById('passs').innerHTML="";
+        return false;
+    }  
+    if(cps == "")
+    {
+        document.getElementById('cnpp').innerHTML="Please confirm password";
+        return false;
+    }
+    if(cps != ps)
+    {
+        document.getElementById('cnpp').innerHTML="Password not match";
+        return false;
+    }
+    
+    else
+    {
+        document.getElementById('cnpp').innerHTML="";
+        return false;
+    }  
+    if(!isNaN(m))
+    {
+        document.getElementById('noo').innerHTML="please enter numbers only";
+        return false;
+    } 
+    if(m.length<10 || m.length>10)
+        {
+            document.getElementById('noo').innerHTML="Please enter 10 digit number only";
+            return false;
+        } 
+    else
+    {
+        document.getElementById('noo').innerHTML="";   
+        return false;    
+    } 
+}
+</script>
+<style type="text/css">
+td
+{
+    font-size: 18px;
+    color: black;
+}
+input
+{
+    width: 250px;
+    height: 25px;
+    border-radius: 10px;
+    font-size: 15px;
+}
+    table
+    {
+        color: rgb(245, 236, 236);
+     /*    background-color: rgb(231, 62, 62);
+ */        border-radius: 35px;
+     }
+ #btn
+ {
+     background-color: red;
+     color: rgb(241, 241, 8);
+     font-size: 20px;
+     font-style: unset;
+     height: 30px;
+     width: 400px;
+     border-radius: 0px 25px;
+ }
+ #btn:hover
+ {
+     background-color: blue;
+ }
+ h1
+ {
+     margin-left: 500px;
+ }
+/*  background="./Images/Ace.jpg" */
+</style>
+</head>
+<body >
+    <h1>Sign up  Form</h1>
+     <form action="#" autocomplete="off" onsubmit="return (validation());">   
+    <table  align="center" cellspacing="15">            
+    <tr><td>First Name:<td><input type="text" placeholder="Enter First Name" size="22" id="first" required>
+    <span id="firstt"></span> </td></tr>
+    <tr><td>Last Name:<td><input type="text" placeholder="Enter Last Name" size="22" id="last" required>
+    <span id="lastt"></span> </td></tr>
+    <tr><td>Mobile Number:<td><input type="number" placeholder="Enter Number(+91)" size="22" id="no" required>
+    <span id="noo"></span> </td></tr>
+    <tr><td>Email Address:<td><input type="email" placeholder="Enter Email Address" size="22" id="mail" required>
+    <span id="maill"></span> </td></tr>
+    <tr><td>Password:<td><input type="password" placeholder="Enter Password" size="22" id="pass" required>
+    <span id="passs"></span> </td></tr>
+    <tr><td>Confirm Password:<td><input type="password" placeholder="Confirm Password" size="22" id="cnp" required>
+    <span id="cnpp"></span> </td></tr>
+    <tr><td>Gender:</td>
+        <td>
+            <input type="radio" name="Gender" required>Male
+            <input type="radio" name="Gender" required>Female
+         </td></tr>
+   <tr><td>DOB:</td>
+    <td>
+        <select>
+            <option>DAY</option>
+<option>1</option><option>2</option><option>3</option>
+<option>4</option><option>5</option><option>6</option>            
+<option>7</option><option>8</option><option>9</option>            
+<option>10</option><option>11</option><option>12</option>
+<option>13</option><option>14</option><option>15</option>     
+<option>16</option><option>17</option><option>18</option>   
+<option>19</option><option>20</option><option>21</option>   
+<option>22</option><option>23</option><option>24</option>   
+<option>25</option><option>26</option><option>27</option>   
+<option>28</option><option>29</option><option>30</option>  
+<option>31</option>
+</select>
+<select>
+    <option>MONTH</option>
+<option>Jan</option><option>Feb</option><option>Mar</option>
+<option>Apr</option><option>May</option><option>Jun</option>            
+<option>Jul</option><option>Aug</option><option>Sep</option>            
+<option>Oct</option><option>Nov</option><option>Dec</option>
+</select>
+<select>
+    <option>YEAR</option>
+<option>2000</option><option>2001</option><option>2002</option>
+<option>2003</option><option>2004</option><option>2005</option>            
+<option>2006</option><option>2007</option><option>2008</option>            
+<option>2009</option><option>2010</option><option>2011</option>
+</select>
+</td>
+<tr><td>Languages Known:</td>
+    <td>
+        <input type="checkbox"  >Hindi
+        <input type="checkbox"  >English <br>
+        <input type="checkbox"  >Marathi
+     </td></tr>
+<tr><td>Address:</td>
+<td>
+<textarea rows="5" cols="40"></textarea>
+</td></tr>
+    
+<br> <tr><td align="center" colspan="2"><input type="submit" id="btn"></td>
+</table>
+</form>
+
+</body>
+</html>
